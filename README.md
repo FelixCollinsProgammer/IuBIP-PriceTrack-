@@ -1,81 +1,139 @@
+# PriceTrack
 
-# PriceTrack 📊💰
+PriceTrack - это сервис для отслеживания цен на товары в различных интернет-магазинах. Приложение позволяет добавлять товары, отслеживать изменения цен и получать уведомления о снижении цен.
 
-![PriceTrack](https://img.shields.io/badge/PriceTrack-1.0.0-blue)
-![TypeScript](https://img.shields.io/badge/TypeScript-5.0.0-blue)
-![Node.js](https://img.shields.io/badge/Node.js-18.x-green)
-![React](https://img.shields.io/badge/React-18.x-61DAFB)
-![Vite](https://img.shields.io/badge/Vite-5.x-646CFF)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+## Возможности
 
-## Smart Price Monitoring for Online Shoppers 🛒
+- 🌙 Темная и светлая темы
+- 📊 Графики изменения цен (по часам, дням, неделям, месяцам и годам)
+- 🔔 Уведомления о снижении цен
+- 📱 Адаптивный дизайн
+- 🛍️ Поддержка различных магазинов (Ozon, Wildberries, AliExpress)
+- 💾 Сохранение истории цен
+- 📧 Email-уведомления
+- 🔄 Автоматическое обновление цен
 
-PriceTrack is an intelligent price monitoring application that helps you track product prices across popular marketplaces like Ozon, Wildberries, and AliExpress. Never miss a discount again!
+## Технологии
 
-### ✨ Features
+### Frontend
+- React
+- TypeScript
+- Styled Components
+- React Query
+- Chart.js
+- Framer Motion
+- React Router
+- React Toastify
 
-- **Multi-marketplace Support**: Track prices from Ozon, Wildberries, AliExpress, and more
-- **Real-time Price Updates**: Keep track of the latest price changes
-- **Price History Charts**: Visualize price fluctuations over time
-- **Discount Alerts**: Get notified when prices drop below your target
-- **User-friendly Interface**: Simple and intuitive design for effortless price tracking
+### Backend
+- Node.js
+- Express
+- TypeScript
+- TypeORM
+- PostgreSQL
+- Puppeteer
 
-### 🚀 Technology Stack
+## Установка
 
-- **Frontend**: React, TypeScript, Vite
-- **Backend**: Node.js, Express, TypeScript
-- **Database**: SQL (TypeORM)
-- **Web Scraping**: Puppeteer, Selenium (Python integration)
-- **API Integration**: Direct marketplace API connections
+### Требования
+- Node.js 18+
+- PostgreSQL 12+
 
-### 📷 Screenshots
-
-*[Insert screenshots of your application here]*
-
-### 🛠️ Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/PriceTrack.git
-
-# Install dependencies for both frontend and backend
-cd PriceTrack
-npm install
-
-# Start the backend server
-cd backend
-npm start
-
-# Start the frontend application
-cd ../frontend
-npm start
+### Настройка базы данных
+1. Установите PostgreSQL
+2. Создайте базу данных:
+```sql
+CREATE DATABASE pricetrack;
 ```
 
-### 📝 Usage
+### Установка зависимостей
+```bash
+# Установка зависимостей backend
+cd backend
+npm install
 
-1. Create an account or login
-2. Add product URLs from supported marketplaces
-3. Set your desired price alerts
-4. Get notified when prices drop
-5. View price history and trends
+# Установка зависимостей frontend
+cd frontend
+npm install
+```
 
-### 📊 Supported Marketplaces
+### Настройка окружения
+1. Скопируйте `.env.example` в `.env` в директории backend
+2. Настройте переменные окружения в `.env`
 
+## Запуск
+
+### Development
+```bash
+# Запуск backend
+cd backend
+npm run dev
+
+# Запуск frontend
+cd frontend
+npm run start
+```
+
+### Production
+```bash
+# Сборка и запуск backend
+cd backend
+npm run build
+npm start
+
+# Сборка и запуск frontend
+cd frontend
+npm run build
+npm run preview
+```
+
+### Настройка автоматического обновления цен
+PriceTrack поддерживает автоматическое обновление цен товаров через регулярные интервалы времени:
+
+```bash
+# Настройка автоматического обновления цен (через cron)
+cd backend
+./setup-cron.sh
+```
+
+Подробная информация о настройке и использовании этой функции доступна в файле `backend/PRICE_UPDATE_README.md`.
+
+## Контакты
+
+- Telegram: [@felixdwe](https://t.me/felixdwe)
+- Email: fluffythelegacy@gmail.com
+- Телефон: +7 (993) 950-37-22
+
+## Лицензия
+
+MIT
+
+## Расширенный парсер цен на основе Python
+
+Для более надежного парсинга цен с различных маркетплейсов был разработан Python-парсер, использующий Playwright для рендеринга страниц с JavaScript.
+
+### Установка Python-парсера
+
+Для использования Python-парсера необходимо:
+
+1. Установить Python 3.7 или выше
+2. Запустить скрипт установки:
+
+```bash
+cd backend
+npm run setup:parser
+```
+
+Скрипт установит все необходимые зависимости Python и настроит браузер Playwright.
+
+### Как работает парсер
+
+Парсер автоматически распознает маркетплейс по URL и использует специфичные для каждого маркетплейса селекторы для извлечения данных о товаре.
+
+Поддерживаемые маркетплейсы:
 - Ozon
 - Wildberries
 - AliExpress
-- Amazon
-- Yandex Market
-- More coming soon!
+- Другие сайты (используется универсальный алгоритм парсинга)
 
-### 🤝 Contributing
-
-Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/PriceTrack/issues).
-
-### 📄 License
-
-This project is [MIT](LICENSE) licensed.
-
----
-
-Made with ❤️ by [Your Name]
+Если Python-парсер по каким-то причинам не сработает, система автоматически вернется к использованию JavaScript-парсера. 
